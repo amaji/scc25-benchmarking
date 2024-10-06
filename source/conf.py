@@ -17,9 +17,9 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'SCC23-Benchmarking'
+project = 'SCC24-Benchmarking'
 project_lower = project.lower()
-copyright = '2023, Student Cluster Competition (SCC23)'
+copyright = '2024, Student Cluster Competition (SCC24)'
 author = ''
 project_repo='``{0}``'.format(project_lower)
 
