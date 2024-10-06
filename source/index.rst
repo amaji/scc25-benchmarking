@@ -21,9 +21,8 @@ Once a hardware certification has been submitted and verified, a team cannot mod
 
    benchmarks/general.rst
    benchmarks/hpl.rst
-   benchmarks/hpcg.rst
    benchmarks/mlperf.rst
-   benchmarks/optional.rst
+   benchmarks/mystery.rst
    benchmarks/interview.rst
    benchmarks/faq.rst
 
