@@ -4,7 +4,7 @@ General submission instructions
 A hardware certification submission consists of a team:
 
 1. Configuring their cluster hardware as they see fit.
-2. Running HPL, MLPerf-BERT Inference, and the mystery benchmark in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 4500W compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC24, there is also a per-node power limit of 2000W, implying that the power consumption by any single node must not exceed 2000W when the benchmarks are run.* For each benchmark, the team should capture:
+2. Running HPL, MLPerf-SDXL Inference, and the mystery benchmark in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 4500W compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC24, there is also a per-node power limit of 2000W, implying that the power consumption by any single node must not exceed 2000W when the benchmarks are run.* For each benchmark, the team should capture:
 
    - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``hpcg``, ``mlperf``, for example: ``cert-1-hpcg.tstamps`` Teams can capture these timestamps by running:
 
@@ -22,7 +22,7 @@ A hardware certification submission consists of a team:
 
      .. code-block::
 
-	cert1-submission/
+	cert1-submission1/
 	|-- hpl
 	|   |-- cert-1-configuration.txt
 	|   |-- cert-1-hpl.input
@@ -53,6 +53,34 @@ The team liaison or another SCC committee member will then inspect the files des
 Judges will determine based on the timestamps for each run whether there is a spike in the power usage of the team that correlates with running the benchmark. Power usage will be checked at 1 second intervals to ensure that teams do not exceed the power budget (maximum of 2000W per node and 4500W total for all nodes in the cluster) in order to comply with Top500 and SCC rules.
 
 If all results are valid, the runs have stayed below power limits, and the team has complied with the directions in this document plus any addendums made by the SCC committee, the team’s hardware configuration will be considered certified. If one of these is not met, the configuration will not be considered certified but will still count against a team’s limit of hardware configuration certification attempts.
+
+.. _Improving benchmark results:
+
+Improving benchmark results
+---------------------------
+
+**After successful completion of a certification attempt**, teams can continue working on specific benchmarks until the end of the benchmarking window (6 PM EDT on 18 Nov, 2024) and upload improved results. Unlike previous years, teams can submit newer results of a single benchmark; no need to re-run all the benchmarks. Following rules apply for "benchmark re-submission" after a successful certification.
+
+1. You must have completed a successful certification of your cluster which has been approved by the SCC committee.
+2. The hardware configuration of the cluster should not be modified and any node of the cluster should not be powered on/off/rebooted since the last successful certification. If either of these conditions is not met, you will be required to re-certify your cluster.
+3. The benchmark runs should not exceed the power limits specified previously. If a team goes over the power limit at any point after the last successful certification, points will be deducted from the team's total.
+4. Submit the updated results for the benchmarks in a new directory. Do NOT overwrite the original certification attempt. Please make sure to include all the required files for the submitted benchmark(s). An example is shown below.
+
+   .. code-block::
+
+     cert1-submission1/  ##successful certification attempt##
+     |   |-- hpl
+     |   |   |-- ...
+     |   |-- mlperf
+     |   |   |-- ...
+     |   `-- <mystery> 
+     |       |-- ...
+     cert1-submission2/  ##updated results for MLPerf##
+         `-- mlperf
+             |-- ...
+
+5. Only the latest result for a benchmark (after successful certification) will be evaluated.
+
 
 .. _Configuration file:
 
