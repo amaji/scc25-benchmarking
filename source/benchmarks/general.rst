@@ -6,7 +6,7 @@ A hardware certification submission consists of a team:
 1. Configuring their cluster hardware as they see fit.
 2. Running HPL, MLPerf-SDXL Inference, and the mystery benchmark in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 4500W compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC24, there is also a per-node power limit of 2000W, implying that the power consumption by any single node must not exceed 2000W when the benchmarks are run.* For each benchmark, the team should capture:
 
-   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``hpcg``, ``mlperf``, for example: ``cert-1-hpcg.tstamps`` Teams can capture these timestamps by running:
+   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mlperf``, or ``mystery`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
 
 	``echo `date -u` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and 
 	``echo `date -u` >> cert-${NUMBER}-${BENCHMARK}.tstamps`` upon completion of the run (note the ``>>`` to append rather than overwrite the file). 
@@ -64,7 +64,7 @@ Improving benchmark results
 1. You must have completed a successful certification of your cluster which has been approved by the SCC committee.
 2. The hardware configuration of the cluster should not be modified and any node of the cluster should not be powered on/off/rebooted since the last successful certification. If either of these conditions is not met, you will be required to re-certify your cluster.
 3. The benchmark runs should not exceed the power limits specified previously. If a team goes over the power limit at any point after the last successful certification, points will be deducted from the team's total.
-4. Submit the updated results for the benchmarks in a new directory. Do NOT overwrite the original certification attempt. Please make sure to include all the required files for the submitted benchmark(s). An example is shown below.
+4. Submit the updated results for the benchmarks in a **new** directory **before** the benchmarking deadline (6 PM EDT on 18 Nov, 2024). Do NOT overwrite the original certification attempt. Please make sure to include all the required files for the submitted benchmark(s). An example is shown below.
 
    .. code-block::
 
