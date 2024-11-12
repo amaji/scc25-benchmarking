@@ -59,7 +59,7 @@ If all results are valid, the runs have stayed below power limits, and the team 
 Improving benchmark results
 ---------------------------
 
-**After successful completion of a certification attempt**, teams can continue working on specific benchmarks until the end of the benchmarking window (6 PM EDT on 18 Nov, 2024) and upload improved results. Unlike previous years, teams can submit newer results of a single benchmark; no need to re-run all the benchmarks. Following rules apply for "benchmark re-submission" after a successful certification.
+**After successful completion of a certification attempt**, teams can continue working on specific benchmarks until the end of the benchmarking window (6 PM EDT on 18 Nov, 2024) and upload improved results. Unlike previous years, teams can submit newer results of a single benchmark; no need to re-run all the benchmarks. Following rules apply for "benchmark re-submission" **after** a successful certification.
 
 1. You must have completed a successful certification of your cluster which has been approved by the SCC committee.
 2. The hardware configuration of the cluster should not be modified and any node of the cluster should not be powered on/off/rebooted since the last successful certification. If either of these conditions is not met, you will be required to re-certify your cluster.
