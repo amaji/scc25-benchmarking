@@ -4,9 +4,9 @@ General submission instructions
 A hardware certification submission consists of a team:
 
 1. Configuring their cluster hardware as they see fit.
-2. Running HPL, MLPerf-SDXL Inference, and the mystery benchmark in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 4500W compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC24, there is also a per-node power limit of 2000W, implying that the power consumption by any single node must not exceed 2000W when the benchmarks are run.* For each benchmark, the team should capture:
+2. Running HPL, MLPerf-SDXL Inference, and the NPB benchmark in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 4500W compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC24, there is also a per-node power limit of 2000W, implying that the power consumption by any single node must not exceed 2000W when the benchmarks are run.* For each benchmark, the team should capture:
 
-   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mlperf``, or ``mystery`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
+   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mlperf``, or ``npb`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
 
 	``echo `date -u` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and 
 	``echo `date -u` >> cert-${NUMBER}-${BENCHMARK}.tstamps`` upon completion of the run (note the ``>>`` to append rather than overwrite the file). 
@@ -16,7 +16,7 @@ A hardware certification submission consists of a team:
    - The script used to run the benchmark (or the sequence of commands), copied to a file named like ``cert-${NUMBER}-${BENCHMARK}.run``. 
    - For HPL, The team should also record the information listed under the section :ref:`Configuration file<Configuration file>` below, in a file named like ``cert-${NUMBER}-configuration.txt``. This information is needed to form a valid `top500 submission <https://top500.org/>`_ and must be submitted with the HPL input and results files.
 
-3. **In general, teams must use at least 2 nodes for running HPL and the mystery benchmark, and 1 or more nodes for running MLPerf Inference.** An exception to this rule may be granted if (you have hardware that cannot be physically reconfigured) AND (you have only one node containing GPUs) AND (the power consumption for the GPU node is within the 2000W power limit). In this scenario, please contact the SCC24 committee and get approval to use 1 node for HPL.
+3. **In general, teams must use at least 2 nodes for running HPL and the NPB benchmark, and 1 or more nodes for running MLPerf Inference.** An exception to this rule may be granted if (you have hardware that cannot be physically reconfigured) AND (you have only one node containing GPUs) AND (the power consumption for the GPU node is within the 2000W power limit). In this scenario, please contact the SCC24 committee and get approval to use 1 node for HPL.
 
 4. Uploading all of the files described above (``cert-*-*.*``, and ``cert-*-configuration.txt``) to the file server designated by the SCC committee. Teams are encouraged to organize their results into separate directories for each benchmark. An example is shown below.
 
@@ -40,11 +40,12 @@ A hardware certification submission consists of a team:
 	|   |-- mlperf_submission_1.run
 	|   |-- mlperf_submission_1.tstamps
 	|   `-- mlperf_submission_1.md
-	`-- <mystery> ##Replace with actual name##
-	    |-- cert-1-<mystery>.info
-	    |-- cert-1-<mystery>.rslts
-	    |-- cert-1-<mystery>.run
-	    `-- cert-1-<mystery>.tstamps
+	`-- npb
+	    |-- cert-1-npb.report.pdf
+	    |-- cert-1-npb.build
+	    |-- cert-1-npb.rslts
+	    |-- cert-1-npb.run
+	    `-- cert-1-npb.tstamps
 
 5. Within 10 minutes of completing the set of benchmark runs, sending one team member to alert the SCC committee (ideally via their team liaison) that they are ready to have their hardware configuration certified (you can do this before the upload is complete).
 
@@ -73,7 +74,7 @@ Improving benchmark results
      |   |   |-- ...
      |   |-- mlperf
      |   |   |-- ...
-     |   `-- <mystery> 
+     |   `-- npb 
      |       |-- ...
      cert1-submission2/  ##updated results for MLPerf##
          `-- mlperf
