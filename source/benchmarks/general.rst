@@ -4,7 +4,7 @@ General submission instructions
 A hardware certification submission consists of a team:
 
 1. Configuring their cluster hardware as they see fit.
-2. Running HPL, HPL-MXP, and MLPerf Inference LLAMAv2-70B in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 10 kW compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC25, there is no per-node power limit, but it is expected that HPL and HPL-MXP will be run on multiple nodes.* For each benchmark, the team should capture:
+2. Running HPL, HPL-MXP, and MLPerf Inference LLAMA2-70B in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 10 kW compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC25, there is no per-node power limit, but it is expected that HPL and HPL-MXP will be run on multiple nodes.* For each benchmark, the team should capture:
 
    - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mlperf``, or ``mxphpl`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
 
