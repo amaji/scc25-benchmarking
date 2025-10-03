@@ -25,6 +25,7 @@ Once a hardware certification has been submitted and verified, a team cannot mod
    benchmarks/mlperf.rst
    benchmarks/grading.rst
    benchmarks/faq.rst
+   benchmarks/help.rst
 
 
 .. Indices and tables
