@@ -3,7 +3,7 @@ Frequently asked questions
 
   - **When should we inform the SCC committee about code modifications to the benchmark source codes?**
   
-    If you modify the source codes for any of the benchmark applications, such modifications should be communicated to the SCC25 committee by Nov 3, 2025 (Mon). This is to make sure that the committee has sufficient time to review and approve the changes. Code modifications after this date *may* be allowed by the SCC committee only in exceptional circumstances.
+    If you modify the source codes for any of the benchmark applications, such modifications should be shared with the SCC25 committee by Nov 10, 2025 (Mon). This is to make sure that the committee has sufficient time to review and approve the changes. Code modifications after this date *may* be allowed by the SCC committee only in exceptional circumstances.
 
   - **We have novel hardware for which X benchmark has not been optimized. How can we still be competitive with other teams?**
 

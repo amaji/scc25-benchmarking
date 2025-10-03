@@ -1,9 +1,14 @@
 HPL-MXP rules and validation
 ------------------------
 
-The HPL-MXP benchmark is described at https://www.top500.org/project/linpack/.
+The HPL Mixed Precision (HPL-MXP) benchmark is described at https://hpl-mxp.org/.
 
-When built from source, the HPL-MXP output shows the validity of the run on the following line:
+Different vendors provide optimized implementation of the HPL-MXP benchmarks and teams are encouraged to use these vendor-optimized implementations to get the maximum performance on their clusters.
+
+Nvidia HPL-MXP implementation: https://docs.nvidia.com/nvidia-hpc-benchmarks/HPL_MxP_benchmark.html
+AMD HPL-MXP implementation: https://www.amd.com/en/developer/resources/infinity-hub/hpl-mxp.html
+
+The HPL-MXP output shows the validity of the run on the following line:
 
 .. code-block:: bash
 
@@ -21,10 +26,8 @@ There is no minimum run time associated with HPL-MXP.
 
 **Files to submit**
 
-- HPL output saved to a file ``cert-{N}-mxphpl.rslts``
-- HPL input file (``HPL.dat``) saved to a file ``cert-{N}-mxphpl.input``
-- The script (or commands) used to run HPL saved to a file ``cert-{N}-mxphpl.run``
-- HPL run timestamps saved to a file ``cert-{N}-mxphpl.tstamps``
-- `Run configurations <https://scc24-benchmarking.readthedocs.io/en/latest/benchmarks/general.html#configuration-file-description>`_ saved to a file ``cert-{N}-configuration.txt``
-
+- HPL-MXP output saved to a file ``cert-{N}-mxphpl.rslts``
+- HPL-MXP input parameters saved to a file ``cert-{N}-mxphpl.input``
+- The script (or commands) used to run HPL-MXP saved to a file ``cert-{N}-mxphpl.run``
+- HPL-MXP run timestamps saved to a file ``cert-{N}-mxphpl.tstamps``
 

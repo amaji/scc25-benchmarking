@@ -8,7 +8,8 @@ A hardware certification submission consists of a team:
 
    - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mxphpl``, or ``mlperf`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
 
-	``echo `TZ=America/Chicago date` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and 
+	``echo `TZ=America/Chicago date` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and
+
 	``echo `TZ=America/Chicago date` >> cert-${NUMBER}-${BENCHMARK}.tstamps`` upon completion of the run (note the ``>>`` to append rather than overwrite the file). 
 
    - The input file used, copied to a file named like ``cert-${NUMBER}-${BENCHMARK}.input``
