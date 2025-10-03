@@ -4,19 +4,19 @@ General submission instructions
 A hardware certification submission consists of a team:
 
 1. Configuring their cluster hardware as they see fit.
-2. Running HPL, HPL-MXP, and MLPerf Inference LLAMA2-70B in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 10 kW compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC25, there is no per-node power limit, but it is expected that HPL and HPL-MXP will be run on multiple nodes.* For each benchmark, the team should capture:
+2. Running HPL, HPL-MXP, and MLPerf Inference LLAMA2-70B in succession (in any order), following the rules noted below for each, and receiving valid results that do not violate the 10kW compute power limit for the entirety of benchmark runs and any time in between. *Note that for SCC25, there is no per-node power limit, but it is expected that HPL and HPL-MXP will be run on multiple nodes.* For each benchmark, the team should capture:
 
-   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mlperf``, or ``mxphpl`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
+   - Timestamps immediately before and after the run, in a file named like ``cert-${NUMBER}-${BENCHMARK}.tstamps``.  Here, ``${NUMBER}`` corresponds to the team’s current hardware certification attempt (i.e. ``1``, ``2``, ``3``, ``4``, or ``5``), and ``${BENCHMARK}`` is one of ``hpl``, ``mxphpl``, or ``mlperf`` (e.g. ``cert-1-hpl.tstamps``). Teams can capture these timestamps by running:
 
-	``echo `date -u` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and 
-	``echo `date -u` >> cert-${NUMBER}-${BENCHMARK}.tstamps`` upon completion of the run (note the ``>>`` to append rather than overwrite the file). 
+	``echo `TZ=America/Chicago date` > cert-${NUMBER}-${BENCHMARK}.tstamps`` immediately before the run, and 
+	``echo `TZ=America/Chicago date` >> cert-${NUMBER}-${BENCHMARK}.tstamps`` upon completion of the run (note the ``>>`` to append rather than overwrite the file). 
 
    - The input file used, copied to a file named like ``cert-${NUMBER}-${BENCHMARK}.input``
    - The output produced, copied to a file named like ``cert-${NUMBER}-${BENCHMARK}.rslts``. 
    - The script used to run the benchmark (or the sequence of commands), copied to a file named like ``cert-${NUMBER}-${BENCHMARK}.run``. 
    - For HPL, The team should also record the information listed under the section :ref:`Configuration file<Configuration file>` below, in a file named like ``cert-${NUMBER}-configuration.txt``. This information is needed to form a valid `top500 submission <https://top500.org/>`_ and must be submitted with the HPL input and results files.
 
-3. **In general, teams are expected to use at least 2 nodes for running HPL and the HPL-MXP benchmark, and 1 or more nodes for running MLPerf Inference.** An exception to this rule may be granted if (you have hardware that cannot be physically reconfigured) AND (you have only one node containing GPUs). In this scenario, please contact the SCC25 committee and get approval to use 1 node for HPL and HPL-MXP.
+3. **In general, teams are expected to use at least 2 nodes for running HPL and HPL-MXP benchmarks, and 1 or more nodes for running MLPerf Inference.** An exception to this rule may be granted if (you have hardware that cannot be physically reconfigured) AND (you have only one node containing GPUs). In this scenario, please contact the SCC25 committee and get approval to use 1 node for HPL and HPL-MXP.
 
 4. Uploading all of the files described above (``cert-*-*.*``, and ``cert-*-configuration.txt``) to the file server designated by the SCC committee. Teams are encouraged to organize their results into separate directories for each benchmark. An example is shown below.
 
@@ -35,22 +35,16 @@ A hardware certification submission consists of a team:
 	|   |-- cert-1-mxphpl.run
 	|   `-- cert-1-mxphpl.tstamps
 	`-- mlperf
-	    |-- mlperf_submission_short.tar.gz
-	    |-- mlperf_submission_short_summary.json
-	    |-- mlperf_submission_short.run
-	    |-- mlperf_submission_short.tstamps
-	    |-- mlperf_submission_short.md
-	    |-- mlperf_submission_1.tar.gz
-	    |-- mlperf_submission_1_summary.json
-	    |-- mlperf_submission_1.run
-	    |-- mlperf_submission_1.tstamps
-	    `-- mlperf_submission_1.md
+	    |-- mlperf_submission.md
+	    |-- mlperf_submission.run
+	    |-- mlperf_submission.tar.gz
+	    `-- mlperf_submission.tstamps
 
 5. Within 10 minutes of completing the set of benchmark runs, sending one team member to alert the SCC committee (ideally via their team liaison) that they are ready to have their hardware configuration certified (you can do this before the upload is complete).
 
 The team liaison or another SCC committee member will then inspect the files described above to verify that the runs were valid and in conformance with the SCC25 Benchmarking rules. The team liaison or the benchmarking judges will visually inspect and document the team’s cluster hardware configuration, and may ask questions to understand the hardware configuration and/or changes from one certification attempt to another. For the result to be valid, all of the team's hardware, including spare replacement machines, must be either in the cluster’s rack or on the table with the rest of the cluster’s hardware. If any hardware is later found that was not visible during certification then the certification will be invalidated. 
 
-Judges will determine based on the timestamps for each run whether there is a spike in the power usage of the team that correlates with running the benchmark. Power usage will be checked at 1 second intervals to ensure that teams do not exceed the power budget (maximum of 10kW total for all equipments in the cluster) in order to comply with Top500 and SCC rules.
+Judges will determine based on the timestamps for each run whether there is a spike in the power usage of the team that correlates with running the benchmark. Power usage will be checked at 1 second intervals to ensure that teams do not exceed the power budget (maximum of 10kW total for all equipments in the cluster) in order to comply with SCC25 rules.
 
 If all results are valid, the runs have stayed below power limits, and the team has complied with the directions in this document plus any addendums made by the SCC committee, the team’s hardware configuration will be considered certified. If one of these is not met, the configuration will not be considered certified but will still count against a team’s limit of hardware configuration certification attempts.
 
@@ -99,7 +93,7 @@ In order to comply with the Top500 requirements for power measurements, the ``ce
 	8) Processor speed (in Mhz)
 	9) Accelerator/Co-Processor. If you have different Accelerators/Co-Processors please specify only the model HPL was executed on (e.g. NVIDIA H100 PCIe 80 GB)
 	10) Number and type of accelerator(s)/co-processor(s) per node that HPL was executed on (e.g. 2 NVIDIA H100s in node 1 and 2 NVIDIA H100s in node 2)
-	11) Cores Per Accelerator/Co-Processor that HPL was executed on, for GPUs this is usually the number of shader clusters and not the total number of shaders. (e.g. 2688 cores per GPU)
+	11) FP64 Cores Per Accelerator/Co-Processor that HPL was executed on (e.g. 8448 cores per GPU)
 	12) System peak power used in watts, including networking equipment (e.g. 9500W)
 	13) Number of compute node cores that HPL was executed on (e.g. 6 cores per node)
 	14) Primary Operating System and version (e.g. Redhat 9.2)
