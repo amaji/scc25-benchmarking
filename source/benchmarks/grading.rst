@@ -1,4 +1,4 @@
-Benchmarking grading
+Benchmark grading
 ----------------------
 Unlike previous years, there will NOT be a benchmarking interview for this year's competition.
 
