@@ -6,6 +6,7 @@ The HPL Mixed Precision (HPL-MXP) benchmark is described at https://hpl-mxp.org/
 Different vendors provide optimized implementation of the HPL-MXP benchmarks and teams are encouraged to use these vendor-optimized implementations to get the maximum performance on their clusters.
 
 Nvidia HPL-MXP implementation: https://docs.nvidia.com/nvidia-hpc-benchmarks/HPL_MxP_benchmark.html
+
 AMD HPL-MXP implementation: https://www.amd.com/en/developer/resources/infinity-hub/hpl-mxp.html
 
 An example of the HPL-MXP result output is shown below:
